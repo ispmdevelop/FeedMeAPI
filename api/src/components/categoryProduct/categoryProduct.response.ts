@@ -1,5 +1,5 @@
-import { CategoryProductDto } from 'src/shared/dto/categoryProduct.dto';
-import { HttpResponseModel } from 'src/shared/models/httpResponseModel';
+import { CategoryProductDto } from '../../shared/dto/categoryProduct.dto';
+import { HttpResponseModel } from '../../shared/models/httpResponseModel';
 
 export class CategoryProductQuery {
   getAllCategoryProducts(categoryProducts: Array<CategoryProductDto>): HttpResponseModel {

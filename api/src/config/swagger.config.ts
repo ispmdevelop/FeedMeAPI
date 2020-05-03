@@ -1,5 +1,5 @@
 import swaggerJsdoc, { Options, SwaggerDefinition, ApiInformation } from 'swagger-jsdoc';
-import { environment } from "../../environment/environment";
+import { environment } from '../../environment/environment';
 
 const privateMethods = {
   getSwaggerDefinitions(): SwaggerDefinition {
@@ -10,8 +10,8 @@ const privateMethods = {
     };
 
     return {
-      basePath: "/api",
-      host: `${environment.host}:${environment.swaggerPort}`,
+      basePath: '/api',
+      host: `localhost`,
       info,
       // securityDefinitions: {
       //   JWT: {
@@ -22,8 +22,8 @@ const privateMethods = {
       //   }
       // }
     };
-  }
-}
+  },
+};
 
 const options: Options = {
   swaggerDefinition: privateMethods.getSwaggerDefinitions(),

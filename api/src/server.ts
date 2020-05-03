@@ -1,7 +1,7 @@
 import bodyParser from 'body-parser';
 import express from 'express';
 import path from 'path';
-import { createConnection } from 'typeorm';
+import { createConnection, ConnectionOptions } from 'typeorm';
 import { Server } from '@overnightjs/core';
 import { Logger } from '@overnightjs/logger';
 import swaggerUi from 'swagger-ui-express';
@@ -13,6 +13,8 @@ import * as sessions from 'client-sessions';
 import * as global from './config/global.config';
 
 class AppServer extends Server {
+  tries: number = 3;
+
   constructor() {
     super(true);
     this.config();
@@ -24,9 +26,14 @@ class AppServer extends Server {
     this.app.use(cors());
     this.app.use(bodyParser.json());
     this.app.use('/public', express.static(path.resolve(__dirname + '/public')));
-    await createConnection();
+    await this.connectToDatabase();
     this.setupControllers();
     this.app.use(ErrorHandler);
+  }
+
+  private async connectToDatabase() {
+    var config: ConnectionOptions = require('../ormconfig');
+    await createConnection(config);
   }
 
   private configureSessions() {
