@@ -5,3 +5,4 @@ node_modules/
 src/public/products/
 src/shared/wrappers
 build/
+ormconfig.ts
