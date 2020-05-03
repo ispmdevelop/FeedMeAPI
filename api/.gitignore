@@ -1,0 +1,7 @@
+ormconfig.json
+environment/
+src/config/global.config.ts
+node_modules/
+src/public/products/
+src/shared/wrappers
+build/
