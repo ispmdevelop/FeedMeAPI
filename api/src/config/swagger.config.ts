@@ -11,7 +11,7 @@ const privateMethods = {
 
     return {
       basePath: '/api',
-      host: `localhost`,
+      host: `192.168.0.105:3000`,
       info,
       // securityDefinitions: {
       //   JWT: {
