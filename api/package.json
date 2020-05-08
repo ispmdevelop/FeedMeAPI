@@ -6,7 +6,7 @@
   "scripts": {
     "test": "nodemon index.ts",
     "build": "rm -rf ./build/ && tsc",
-    "start": "node build/start.js",
+    "start": "cd build && nodemon index.js",
     "dev": "nodemon --config ./nodemon.json"
   },
   "author": "Isaac Paz (ispmdevelop@gmail.com)",
