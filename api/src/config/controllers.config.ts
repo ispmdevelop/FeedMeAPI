@@ -5,6 +5,7 @@ import { ProductController } from '../components/product/product.controller';
 import { OrderController } from '../components/order/order.controller';
 import { CategoryController } from '../components/category/category.controller';
 import { CategoryProductController } from '../components/categoryProduct/categoryProduct.controller';
+import { ContactNumberController } from '../components/contacNumber/contactNumber.controller';
 
 export class ControllersConfig {
   userController: UserController = new UserController();
@@ -14,6 +15,7 @@ export class ControllersConfig {
   orderController: OrderController = new OrderController();
   categoryController: CategoryController = new CategoryController();
   categoryProductController: CategoryProductController = new CategoryProductController();
+  contactNumberController: ContactNumberController = new ContactNumberController();
 
   getControllers() {
     return [
@@ -24,6 +26,8 @@ export class ControllersConfig {
       this.orderController,
       this.categoryController,
       this.categoryProductController,
+      this.contactNumberController
     ];
   }
 }
+
