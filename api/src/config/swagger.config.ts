@@ -11,7 +11,7 @@ const privateMethods = {
 
     return {
       basePath: '/api',
-      host: `localhost:3000`,
+      host: `167.99.51.186:3000`,
       info,
       
       // securityDefinitions: {

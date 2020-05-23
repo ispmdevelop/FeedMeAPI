@@ -1,2 +1,3 @@
 apidata/
 ./api/ormconfig.ts
+pgdata/
