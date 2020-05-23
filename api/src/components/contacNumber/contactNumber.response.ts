@@ -1,5 +1,6 @@
 import { ContactNumberDto } from '../../shared/dto/contactNumber.dto';
 import { HttpResponseModel } from '../../shared/models/httpResponseModel';
+import * as global from "../../config/global.config";
 
 export class ContactNumberQuery {
   getAllContactNumbers(contactNumbers: Array<ContactNumberDto>): HttpResponseModel {
@@ -7,6 +8,16 @@ export class ContactNumberQuery {
       return { code: 404, message: 'Not Found' };
     }
     return { code: 200, data: contactNumbers };
+  }
+
+  getContactNumberActive(contactNumber: ContactNumberDto): HttpResponseModel {
+    if (contactNumber == null) {
+      return {
+        code: 200, data: global.default
+          .CONTACT_NUMBER_DEFAULT
+      };
+    }
+    return { code: 200, data: contactNumber };
   }
 
   getContactNumber(contactNumber: ContactNumberDto): HttpResponseModel {

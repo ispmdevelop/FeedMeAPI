@@ -33,6 +33,24 @@
  */
 
 /**
+* @swagger
+* /contactNumber/active:
+*   get:
+*     tags:
+*       - ContactNumber
+*     description: Return a contactNumber Active
+*     produces:
+*       - application/json
+*     responses:
+*       200:
+*         description: Return a contactNumber
+*       404:
+*         description: ContactNumber not found
+*       500:
+*         description: Internal server error
+*/
+
+/**
  * @swagger
  * /contactNumber/{id}:
  *   get:

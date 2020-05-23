@@ -14,6 +14,10 @@ export class ContactNumberService {
     return await this.contactNumberRepository.findAll();
   }
 
+  public async getContactNumberActive(): Promise<ContactNumberDto> {
+    return await this.contactNumberRepository.findByWhereOne({ "active": true });
+  }
+
   public async getContactNumberById(id: number): Promise<ContactNumberDto> {
     return await this.contactNumberRepository.findById(id);
   }

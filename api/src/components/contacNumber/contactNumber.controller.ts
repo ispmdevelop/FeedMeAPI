@@ -38,6 +38,19 @@ export class ContactNumberController {
     }
   }
 
+  @Get("active")
+  async getContactNumberActive(req: Request, res: Response, next: NextFunction) {
+    try {
+      const contactNumber: ContactNumberDto = await this.contactNumberService.getContactNumberActive();
+      const httpResponse: HttpResponseModel = this.contactNumberQuery.getContactNumberActive(
+        contactNumber
+      );
+      return res.status(httpResponse.code).send(httpResponse);
+    } catch (e) {
+      next({ name: e.name, message: e.message });
+    }
+  }
+
   @Get(":id")
   async getContactNumber(req: Request, res: Response, next: NextFunction) {
     try {
