@@ -6,8 +6,9 @@
   "scripts": {
     "test": "nodemon index.ts",
     "build": "rm -rf ./build/ && tsc",
-    "start": "cd build && nodemon index.js",
-    "dev": "nodemon --config ./nodemon.json"
+    "start": "cd build && node index.js",
+    "dev": "nodemon --config ./nodemon.json",
+    "prod": "pm2-runtime start npm -- run start"
   },
   "author": "Isaac Paz (ispmdevelop@gmail.com)",
   "license": "ISC",
@@ -31,6 +32,7 @@
     "multer": "^1.4.2",
     "path": "^0.12.7",
     "pg": "^7.3.0",
+    "pm2": "^4.4.0",
     "reflect-metadata": "^0.1.10",
     "swagger-jsdoc": "^4.0.0",
     "swagger-ui-express": "^4.1.4",

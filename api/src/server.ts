@@ -11,8 +11,6 @@ import cors from 'cors';
 import { ControllersConfig } from './config/controllers.config';
 import * as sessions from 'client-sessions';
 import * as global from './config/global.config';
-import * as fs from "fs";
-import e from 'express';
 
 class AppServer extends Server {
   tries: number = 3;
