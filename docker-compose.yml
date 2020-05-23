@@ -1,12 +1,25 @@
 version: '3'
 services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: superContra123
+      POSTGRES_USER: feedmeadmin
+      POSTGRES_DB: feedmedatabase
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  
   node:
     image: 'node:12.16.3'
-    user: 'node'
+    user: 'root'
     working_dir: /home/node/app
     volumes:
       - ./api:/home/node/app
       - ./apidata/public:/home/node/app/src/public
-    ports:
+    ports:  
       - '3000:3000'
-    command: 'sh -c "npm install && npm run build && cd build && node index.js"'
+    depends_on:
+      - db
+    command: 'sh -c "npm install && npm run build && ln -s /home/node/app/src/public /home/node/app/build/src/public  && npm run prod"'

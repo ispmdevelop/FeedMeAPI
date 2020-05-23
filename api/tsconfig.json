@@ -6,7 +6,7 @@
     "baseUrl": "./index",
     "rootDir": ".",
     "outDir": "build",
-    "removeComments": true,
+    "removeComments": false,
     "experimentalDecorators": true,
     "target": "es6",
     "emitDecoratorMetadata": true,
@@ -16,6 +16,5 @@
     "types": ["node"],
     "typeRoots": ["node_modules/@types"]
   },
-  "include": ["./src/**/*.ts", "index.ts", "ormconfig.ts"],
-  "exclude": ["./src/public/"]
+  "include": ["./src/**/*", "index.ts", "ormconfig.ts"]
 }

@@ -38,7 +38,6 @@ export class InstitutionController {
     }
 
     @Get("password/:password")
-    @Middleware(loggedRequired)
     async getInstitutionByPassword(
         req: Request,
         res: Response,

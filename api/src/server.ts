@@ -21,11 +21,11 @@ class AppServer extends Server {
   }
 
   private async config() {
-    this.configureSessions();
     this.swaggerConfig();
     this.app.use(cors());
+    this.configureSessions();
     this.app.use(bodyParser.json());
-    this.app.use('/public', express.static(path.resolve(__dirname + '/public')));
+    this.app.use('/public', express.static(path.resolve(__dirname, "./public")));
     await this.connectToDatabase();
     this.setupControllers();
     this.app.use(ErrorHandler);
@@ -42,7 +42,7 @@ class AppServer extends Server {
         cookieName: 'session',
         secret: global.default.SESSION_KEY,
         duration: 7 * 24 * 60 * 60 * 1000,
-        cookie: { httpOnly: false },
+        cookie: { overwrite:true, httpOnly: false,},
       })
     );
   }
