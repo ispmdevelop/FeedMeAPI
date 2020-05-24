@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, Index, OneToMany } from 'typeorm';
 import { SubscriptionEntity } from './Subscription';
 import { OrderEntity } from './Order';
+import { AddressEntity } from './Address';
 
 @Entity('user')
 export class UserEntity {
@@ -23,9 +24,12 @@ export class UserEntity {
   @Column('text')
   phone: String;
 
-  @OneToMany((type) => SubscriptionEntity, (subscription) => subscription.user)
+  @OneToMany((type) => SubscriptionEntity, (subscription) => subscription.user, {onDelete: "CASCADE"})
   subscriptions: SubscriptionEntity[];
 
   @OneToMany((type) => OrderEntity, (order) => order.user)
   orders: OrderEntity[];
+
+  @OneToMany(type => AddressEntity, address => address.user, { onDelete: "CASCADE" })
+  addresses: AddressEntity[];
 }
