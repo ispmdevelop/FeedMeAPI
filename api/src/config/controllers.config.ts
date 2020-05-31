@@ -6,6 +6,7 @@ import { OrderController } from '../components/order/order.controller';
 import { CategoryController } from '../components/category/category.controller';
 import { CategoryProductController } from '../components/categoryProduct/categoryProduct.controller';
 import { ContactNumberController } from '../components/contacNumber/contactNumber.controller';
+import { AddressController } from '../components/address/address.controller';
 
 export class ControllersConfig {
   userController: UserController = new UserController();
@@ -16,6 +17,7 @@ export class ControllersConfig {
   categoryController: CategoryController = new CategoryController();
   categoryProductController: CategoryProductController = new CategoryProductController();
   contactNumberController: ContactNumberController = new ContactNumberController();
+  addressController: AddressController = new AddressController();
 
   getControllers() {
     return [
@@ -26,7 +28,8 @@ export class ControllersConfig {
       this.orderController,
       this.categoryController,
       this.categoryProductController,
-      this.contactNumberController
+      this.contactNumberController,
+      this.addressController
     ];
   }
 }

@@ -34,7 +34,7 @@ export function loggedRequired(req, res, next) {
 
 export function sameUserIdOrAdminUser(req, res, next) {
     try {
-        var id = req.params.id || req.params.userid;
+        var id = req.params.id || req.params.userid || req.params.userId;
         if (
             (req.session != null && id == req.session.id) ||
             req.session.role == "ADMIN"
