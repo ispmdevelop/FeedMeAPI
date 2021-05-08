@@ -36,7 +36,7 @@
     "reflect-metadata": "^0.1.10",
     "swagger-jsdoc": "^4.0.0",
     "swagger-ui-express": "^4.1.4",
-    "typeorm": "0.2.24",
+    "typeorm": "0.2.25",
     "typescript-ioc": "^3.2.1"
   },
   "devDependencies": {
